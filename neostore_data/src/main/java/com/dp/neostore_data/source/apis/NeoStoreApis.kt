@@ -98,7 +98,7 @@ interface NeoStoreApis {
     companion object {
         private var retrofit: Retrofit? = null
 
-        fun invoke(baseUrl: String, context: Context): NeoStoreApis {
+        fun invoke(baseUrl: String): NeoStoreApis {
 
             val httpLogging = HttpLoggingInterceptor().apply {
                 level = HttpLoggingInterceptor.Level.BODY
