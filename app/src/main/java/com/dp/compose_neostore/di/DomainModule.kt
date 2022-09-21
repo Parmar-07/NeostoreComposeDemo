@@ -1,10 +1,14 @@
 package com.dp.compose_neostore.di
 
+import android.content.Context
+import com.dp.compose_neostore.AppCache
+import com.dp.nestore_domain.base.IAppCache
 import com.dp.nestore_domain.repositories.IAuthenticationRepository
 import com.dp.nestore_domain.usecases.LoginUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -17,4 +21,14 @@ class DomainModule {
     fun provideLoginUseCase(authenticationRepository: IAuthenticationRepository): LoginUseCase {
         return LoginUseCase(authenticationRepository)
     }
+
+    @Provides
+    @Singleton
+    fun provideAppCache(@ApplicationContext appContext: Context): IAppCache {
+        return AppCache(appContext)
+    }
+
+
+
+
 }
