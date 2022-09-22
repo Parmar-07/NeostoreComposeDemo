@@ -1,5 +1,6 @@
 package com.dp.compose_neostore.utils
 
+import android.os.Bundle
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.ViewModel
@@ -7,6 +8,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.dp.compose_neostore.base.CreateComposeScreen
+import com.dp.compose_neostore.ui.features.login.LoginScreen
+import com.dp.compose_neostore.ui.features.login.LoginUIModel
+import com.dp.compose_neostore.ui.features.login.LoginViewModel
 import com.dp.compose_neostore.ui.features.splash.SplashScreen
 import com.dp.compose_neostore.ui.features.splash.SplashUIModel
 import com.dp.compose_neostore.ui.features.splash.SplashViewModel
@@ -14,9 +18,12 @@ import com.dp.compose_neostore.ui.features.splash.SplashViewModel
 sealed class AppRoute<VM : ViewModel, Data : java.io.Serializable>(
     val routeName: String,
     val createComposeScreen: CreateComposeScreen<VM, Data>,
-    var routeArgs: String = "",
 ) {
-    object SplashRoute : AppRoute<SplashViewModel, SplashUIModel>("SplashScreen", SplashScreen())
+
+    var routeArgs: Bundle? = null
+    object SplashRoute : AppRoute<SplashViewModel, SplashUIModel>("SplashRoute", SplashScreen())
+    object LoginRoute : AppRoute<LoginViewModel, LoginUIModel>("LoginRoute",
+        LoginScreen())
 }
 
 
@@ -26,7 +33,11 @@ internal fun NavHostController.NavigateAppRoute(startAppRoute: AppRoute<*, *>) {
     NavHost(navController, startDestination = startAppRoute.routeName) {
         composable(AppRoute.SplashRoute.routeName) {
             AppRoute.SplashRoute.createComposeScreen.Screen(navController, hiltViewModel(),
-                SplashUIModel())
+                SplashUIModel(),AppRoute.LoginRoute.routeArgs)
+        }
+        composable(AppRoute.LoginRoute.routeName) {
+            AppRoute.LoginRoute.createComposeScreen.Screen(navController, hiltViewModel(),
+                LoginUIModel(),AppRoute.LoginRoute.routeArgs)
         }
     }
 }

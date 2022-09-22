@@ -35,7 +35,7 @@ class DataModule {
     @Provides
     @Singleton
     fun provideNeoStoreApi(): NeoStoreApis {
-        return NeoStoreApis.invoke("")
+        return NeoStoreApis.invoke("http://staging.php-dev.in:8844/")
     }
 
     @Provides

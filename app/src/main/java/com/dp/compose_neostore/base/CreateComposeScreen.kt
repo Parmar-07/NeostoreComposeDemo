@@ -26,17 +26,9 @@ abstract class CreateComposeScreen<VM : ViewModel, Data : java.io.Serializable> 
         return MaterialTheme.colors.background
     }
 
-    private var args: Bundle? = null
-
-    fun putArgs(args: Bundle?) {
-        this.args = args
-    }
-
-    fun getArgs(): Bundle? = args
-
     @Suppress("UNCHECKED_CAST")
     @Composable
-    fun Screen(navController: NavController, vm: VM, uiData: Data) {
+    fun Screen(navController: NavController, vm: VM, uiData: Data, args: Bundle?) {
         this.navController = navController
         this.viewModel = remember { vm }
         val savedData = rememberSaveable {
@@ -50,7 +42,7 @@ abstract class CreateComposeScreen<VM : ViewModel, Data : java.io.Serializable> 
             val init = rememberSaveable { mutableStateOf(false) }
             LaunchedEffect(key1 = true) {
                 if (!init.value) {
-                    onInitData(this)
+                    onInitData(this, args)
                     init.value = true
                 }
             }
@@ -63,7 +55,9 @@ abstract class CreateComposeScreen<VM : ViewModel, Data : java.io.Serializable> 
     @Composable
     abstract fun DrawCompose()
 
-    open suspend fun onInitData(coroutineScope: CoroutineScope) {
+    open suspend fun onInitData(coroutineScope: CoroutineScope, args: Bundle?) {
 
     }
+
+
 }
