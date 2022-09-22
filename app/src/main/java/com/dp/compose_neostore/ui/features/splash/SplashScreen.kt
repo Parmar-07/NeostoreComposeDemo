@@ -1,28 +1,41 @@
 package com.dp.compose_neostore.ui.features.splash
 
 import android.view.animation.OvershootInterpolator
+import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.navigation.NavController
-import com.dp.compose_neostore.base.BaseViewModel
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.graphics.Color
 import com.dp.compose_neostore.base.CreateComposeScreen
 import com.dp.compose_neostore.ui.showToast
+import com.dp.compose_neostore.ui.theme.Primary2
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
-import javax.inject.Inject
 
-class SplashScreen:
-    CreateComposeScreen<SplashViewModel>() {
+class SplashScreen : CreateComposeScreen<SplashViewModel,SplashUIModel>() {
 
 
     @Composable
-    override fun Create(navController: NavController, vm: SplashViewModel) {
+    override fun getSurfaceBackGroundColor(): Color {
+        return Primary2
+    }
+
+    override suspend fun onInitData(coroutineScope: CoroutineScope) {
+        data.scaleValue = 0.7f
+        delay(2000L)
+        navController.context.showToast("navigate_ main_screen")
+
+    }
+
+    @Composable
+    override fun DrawCompose() {
 
         val scale = remember {
-            androidx.compose.animation.core.Animatable(0f)
+            Animatable(data.scaleValue)
         }
-
         // AnimationEffect
         LaunchedEffect(key1 = true) {
             scale.animateTo(
@@ -33,10 +46,8 @@ class SplashScreen:
                         OvershootInterpolator(4f).getInterpolation(it)
                     })
             )
-            delay(3000L)
-            navController.context.showToast("navigate_ main_screen")
-            //navController.navigate("main_screen")
         }
+
         SplashText.Create(data = scale.value)
 
     }

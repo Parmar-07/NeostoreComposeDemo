@@ -8,6 +8,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 import com.dp.compose_neostore.base.CreateComposeUI
 
 object SplashText : CreateComposeUI<Float>() {
@@ -19,8 +22,10 @@ object SplashText : CreateComposeUI<Float>() {
             modifier = Modifier.fillMaxSize()) {
             Text(
                 text = "NeoStore",
+                 color = Color.White,
+                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.scale(data),
-                style = MaterialTheme.typography.h5,
+                style = MaterialTheme.typography.h2,
             )
         }
     }
