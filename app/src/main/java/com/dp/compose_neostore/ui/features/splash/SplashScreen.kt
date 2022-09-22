@@ -4,16 +4,19 @@ import android.os.Bundle
 import android.view.animation.OvershootInterpolator
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
+import androidx.compose.material.ScaffoldState
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
-import com.dp.compose_neostore.base.CreateComposeScreen
+import com.dp.compose_neostore.base.compose.AppRoute
+import com.dp.compose_neostore.base.compose.CreateComposeScreen
 import com.dp.compose_neostore.ui.features.splash.composes.SplashText
 import com.dp.compose_neostore.ui.theme.Primary2
-import com.dp.compose_neostore.utils.AppRoute
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class SplashScreen : CreateComposeScreen<SplashViewModel, SplashUIModel>() {
 
@@ -59,6 +62,16 @@ class SplashScreen : CreateComposeScreen<SplashViewModel, SplashUIModel>() {
         }
 
         SplashText.Create(data = scale.value)
+        /*val scaffoldState: ScaffoldState = rememberScaffoldState()
+      LaunchedEffect(true){
+          coroutineScope.launch {
+              scaffoldState.snackbarHostState.showSnackbar(
+                  message = "This is your message",
+                  actionLabel = "Do something"
+              )
+          }
+      }*/
+
 
     }
 }

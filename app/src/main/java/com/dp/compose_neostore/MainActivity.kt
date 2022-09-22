@@ -4,9 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.navigation.compose.rememberNavController
+import com.dp.compose_neostore.base.compose.AppRoute
+import com.dp.compose_neostore.base.compose.NavigateAppRoute
 import com.dp.compose_neostore.ui.theme.NeostoreComposeDemoTheme
-import com.dp.compose_neostore.utils.AppRoute
-import com.dp.compose_neostore.utils.NavigateAppRoute
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

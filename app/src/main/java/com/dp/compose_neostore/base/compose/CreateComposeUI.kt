@@ -1,8 +1,6 @@
-package com.dp.compose_neostore.base
+package com.dp.compose_neostore.base.compose
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavController
-import com.dp.compose_neostore.ui.showToast
 
 abstract class CreateComposeUI<Data> {
 

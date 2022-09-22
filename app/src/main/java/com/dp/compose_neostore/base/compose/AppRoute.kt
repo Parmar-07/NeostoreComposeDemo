@@ -1,4 +1,4 @@
-package com.dp.compose_neostore.utils
+package com.dp.compose_neostore.base.compose
 
 import android.os.Bundle
 import androidx.compose.runtime.Composable
@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.dp.compose_neostore.base.CreateComposeScreen
 import com.dp.compose_neostore.ui.features.login.LoginScreen
 import com.dp.compose_neostore.ui.features.login.LoginUIModel
 import com.dp.compose_neostore.ui.features.login.LoginViewModel
@@ -33,11 +32,11 @@ internal fun NavHostController.NavigateAppRoute(startAppRoute: AppRoute<*, *>) {
     NavHost(navController, startDestination = startAppRoute.routeName) {
         composable(AppRoute.SplashRoute.routeName) {
             AppRoute.SplashRoute.createComposeScreen.Screen(navController, hiltViewModel(),
-                SplashUIModel(),AppRoute.LoginRoute.routeArgs)
+                SplashUIModel(), AppRoute.LoginRoute.routeArgs)
         }
         composable(AppRoute.LoginRoute.routeName) {
             AppRoute.LoginRoute.createComposeScreen.Screen(navController, hiltViewModel(),
-                LoginUIModel(),AppRoute.LoginRoute.routeArgs)
+                LoginUIModel(), AppRoute.LoginRoute.routeArgs)
         }
     }
 }

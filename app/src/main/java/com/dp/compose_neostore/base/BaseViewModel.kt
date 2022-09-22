@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dp.core.ResultWrapper
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -28,6 +29,12 @@ open class BaseViewModel : ViewModel() {
             }
         }
         bgJobs.add(dfJob)
+    }
+
+    internal fun <T> MutableSharedFlow<T>.emitEventData(data:T){
+        viewModelScope.launch {
+            this@emitEventData.emit(data)
+        }
     }
 
     override fun onCleared() {
