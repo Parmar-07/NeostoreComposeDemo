@@ -16,4 +16,3 @@ rootProject.name = "NeostoreComposeDemo"
 include ':app'
 include ':neostore_data'
 include ':neostore_domain'
-include ':core'

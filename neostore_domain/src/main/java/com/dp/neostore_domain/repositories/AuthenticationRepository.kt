@@ -1,8 +1,7 @@
 package com.dp.neostore_domain.repositories
 
- import com.dp.core.ResultWrapper
- import com.dp.neostore_data.DataRepository
-import com.dp.neostore_data.source.apis.ApiException
+ import com.dp.neostore_domain.base.ResultWrapper
+ import com.dp.neostore_data.source.apis.ApiException
 import com.dp.neostore_data.source.apis.NeoStoreApis
 import com.dp.neostore_data.source.models.request.LoginRequestModel
 import com.dp.neostore_data.source.models.response.ApiResponseModel

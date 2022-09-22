@@ -2,7 +2,7 @@ package com.dp.compose_neostore.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.dp.core.ResultWrapper
+import com.dp.neostore_domain.base.ResultWrapper
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch

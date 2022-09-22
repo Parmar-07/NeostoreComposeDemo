@@ -1,6 +1,5 @@
 package com.dp.neostore_domain.base
 
-import com.dp.core.ResultWrapper
 import com.dp.neostore_data.source.apis.ApiException
 
 

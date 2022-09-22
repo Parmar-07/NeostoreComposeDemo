@@ -1,6 +1,6 @@
 package com.dp.neostore_domain.usecases
 
-import com.dp.core.ResultWrapper
+import com.dp.neostore_domain.base.ResultWrapper
 import com.dp.neostore_data.source.models.request.LoginRequestModel
 import com.dp.neostore_data.source.models.response.ApiResponseModel
 import com.dp.neostore_data.source.models.response.LoginResponseModel
@@ -14,7 +14,7 @@ class LoginUseCase(private val authenticationRepository: AuthenticationRepositor
     UseCases<LoginParams, ApiResponseModel<LoginResponseModel>, LoginDataModel>() {
 
     override suspend fun buildUseCase(params: LoginParams): ResultWrapper<Throwable, LoginDataModel> {
-        val loginRequestModel = LoginRequestModel(params.userName, params.password)
+        val loginRequestModel = LoginRequestModel(params.userName, params.password).apply {  }
         return executeUseCase(authenticationRepository.login(loginRequestModel))
 
     }

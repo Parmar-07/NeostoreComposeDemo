@@ -1,4 +1,4 @@
-package com.dp.core
+package com.dp.neostore_domain.base
 
 /**
  * @author Dinesh Parmar

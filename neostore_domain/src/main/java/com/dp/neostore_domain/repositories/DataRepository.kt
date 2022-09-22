@@ -1,6 +1,7 @@
-package com.dp.neostore_data
+package com.dp.neostore_domain.repositories
 
-import com.dp.core.ResultWrapper
+import com.dp.neostore_domain.base.ResultWrapper
+import com.dp.neostore_data.mapToGSONObj
 import com.dp.neostore_data.source.apis.ApiException
 import com.dp.neostore_data.source.models.response.ErrorResponseModel
 import retrofit2.Response
