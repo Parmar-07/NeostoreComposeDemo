@@ -1,0 +1,18 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.dp.neostore_domain'
+    compileSdk 32
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation project(path: ':core')
+    implementation project(path: ':neostore_data')
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+
+}

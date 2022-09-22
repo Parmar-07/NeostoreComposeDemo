@@ -11,8 +11,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/neostore_data" />
-            <option value="$PROJECT_DIR$/nestore_domain" />
+            <option value="$PROJECT_DIR$/neostore_domain" />
           </set>
         </option>
       </GradleProjectSettings>

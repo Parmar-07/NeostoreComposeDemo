@@ -10,12 +10,12 @@ plugins {
 
 android {
     namespace 'com.dp.compose_neostore'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.dp.compose_neostore"
         minSdk 24
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -53,8 +53,11 @@ android {
 
 dependencies {
 
-    compileOnly project(path: ':neostore_data')
-    compileOnly project(path: ':nestore_domain')
+
+    implementation project(":neostore_data")
+    implementation project(":neostore_domain")
+//    compileOnly project(path: ':neostore_data')
+//    compileOnly project(path: ':neostore_domain')
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
@@ -65,6 +68,7 @@ dependencies {
 
     // Compose dependencies
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.0-alpha01"
+    implementation project(path: ':core')
     def lifecycle_version = "2.4.0"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"

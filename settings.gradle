@@ -15,4 +15,5 @@ dependencyResolutionManagement {
 rootProject.name = "NeostoreComposeDemo"
 include ':app'
 include ':neostore_data'
-include ':nestore_domain'
+include ':neostore_domain'
+include ':core'

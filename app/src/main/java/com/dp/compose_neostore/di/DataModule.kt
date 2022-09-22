@@ -1,8 +1,7 @@
 package com.dp.compose_neostore.di
 
-import com.dp.neostore_data.repositories.AuthenticationRepository
 import com.dp.neostore_data.source.apis.NeoStoreApis
-import com.dp.nestore_domain.repositories.IAuthenticationRepository
+import com.dp.neostore_domain.repositories.AuthenticationRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -41,7 +40,7 @@ class DataModule {
 
     @Provides
     @Singleton
-    fun provideAuthRepo(neoStoreApis: NeoStoreApis): IAuthenticationRepository {
+    fun provideAuthRepo(neoStoreApis: NeoStoreApis): AuthenticationRepository {
         return AuthenticationRepository(neoStoreApis)
     }
 
